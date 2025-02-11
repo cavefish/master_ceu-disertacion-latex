@@ -1,0 +1,106 @@
+\documentclass[aspectratio=1610]{beamer}
+\usepackage[latin1]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\graphicspath{{images/}}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{longtable}
+\usepackage{array} % For tables with fixed width
+\usepackage[sharp]{easylist}
+\usepackage{amsmath}
+
+\usepackage{listings}
+\usepackage{tcolorbox}
+\tcbuselibrary{most}
+
+\usepackage{csquotes}
+\usepackage[style=apa, backend=biber]{biblatex}
+\addbibresource{main.bib}
+
+\usefonttheme[onlymath]{serif}
+\usetheme{boxes}
+\title{Disertación: Uso de \LaTeX\ en la creación de documentos académicos}
+\subtitle{Innovación Docente e Iniciación a la Investigación Educativa. Especialización en Ingeniería y Enseñanzas Técnicas}
+\date{Marzo de 2025}
+
+% Indice de sección antes de cada sección
+\AtBeginSection[]
+{
+  \begin{frame}[shrink]{}  
+    \tableofcontents[currentsection,sectionstyle=show/shaded,subsectionstyle=show/show/hide]
+  \end{frame}
+}
+
+% Títulos automáticos para cada frame, usando el título de sección y subsección
+\addtobeamertemplate{frametitle}{
+   \let\insertframetitle\insertsectionhead}{}
+\addtobeamertemplate{frametitle}{
+   \let\insertframesubtitle\insertsubsectionhead}{}
+
+\makeatletter
+  \CheckCommand*\beamer@checkframetitle{\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+  \renewcommand*\beamer@checkframetitle{\global\let\beamer@frametitle\relax\@ifnextchar\bgroup\beamer@inlineframetitle{}}
+\makeatother
+
+\newcommand{\ejemplo}[2]{
+  \begin{tcolorbox}[title=#1]
+    \lstinputlisting[language=tex]{#2}
+    \tcblower%
+    \input{#2}
+  \end{tcolorbox}
+}
+
+\newcommand{\ejemplopdf}[3]{
+  \begin{tcolorbox}[title=#1]
+    \lstinputlisting[language=tex]{#2}
+    \tcblower%
+    \includegraphics[width=\textwidth]{#3}
+  \end{tcolorbox}
+}
+
+\newcommand{\insideFrame}[1]{\begin{frame}[shrink]#1\end{frame}}
+
+\setbeamercovered{transparent}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\section{¿Qué es \LaTeX\ ?}
+\begin{frame}
+  Según \textcite{LaTeXWik47:online}, \LaTeX\ es:
+  \begin{itemize}
+    \item Sistema de composición de textos orientado a la creación de documentos escritos que presenten una alta calidad tipográfica.
+    \item Por sus características y posibilidades, se usa de forma especialmente intensa en:
+          \begin{itemize}
+            \item Generación de artículos.
+            \item Libros científicos.
+            \item Expresiones matemáticas.
+          \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\section{Estructuras básicas}
+
+\insideFrame{\ejemplopdf{Documento básico}{ejemplos/documento.tex}{ejemplos/documento.png}}
+\insideFrame{\ejemplo{Lista de items}{ejemplos/list_itemize.tex}}
+\insideFrame{\ejemplo{Lista numerada}{ejemplos/list_enumerate.tex}}
+\insideFrame{\ejemplo{Lista numerada de otra manera}{ejemplos/list_easylist.tex}}
+
+\section{Estructuras avanzadas}
+\insideFrame{\ejemplo{Ecuaciones matemáticas}{ejemplos/math.tex}}
+
+\section{Estructuras complejas}
+\begin{frame}[allowframebreaks]
+  
+\end{frame}
+
+\section{Bibliografía}
+
+\begin{frame}[allowframebreaks]
+  \printbibliography\
+\end{frame}
+
+\end{document}
