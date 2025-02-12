@@ -10,6 +10,7 @@
 \usepackage{array} % For tables with fixed width
 \usepackage[sharp]{easylist}
 \usepackage{amsmath}
+\usepackage{circuitikz}
 
 \usepackage{listings}
 \usepackage{tcolorbox}
@@ -44,23 +45,37 @@
   \renewcommand*\beamer@checkframetitle{\global\let\beamer@frametitle\relax\@ifnextchar\bgroup\beamer@inlineframetitle{}}
 \makeatother
 
+\lstset{
+  numbers=left,
+  numberstyle=\tiny,
+  stepnumber=1,
+  numbersep=15pt,
+}
+
 \newcommand{\ejemplo}[2]{
-  \begin{tcolorbox}[title=#1]
-    \lstinputlisting[language=tex]{#2}
-    \tcblower%
-    \input{#2}
-  \end{tcolorbox}
+  \subsection{#1}
+  \begin{frame}[shrink]
+    \begin{block}{Código}
+      \lstinputlisting[language=tex, frame=trBL]{#2}
+    \end{block}
+    \begin{block}{Resultado}
+      \input{#2} 
+    \end{block}   
+  \end{frame}
 }
 
 \newcommand{\ejemplopdf}[3]{
-  \begin{tcolorbox}[title=#1]
-    \lstinputlisting[language=tex]{#2}
-    \tcblower%
-    \includegraphics[width=\textwidth]{#3}
-  \end{tcolorbox}
+  \subsection{#1}
+  \begin{frame}[shrink]
+    \begin{block}{Código}
+      \lstinputlisting[language=tex]{#2}
+    \end{block}    
+  \end{frame}
+  \begin{frame}[shrink]
+    \includegraphics[width=\textwidth]{#3}    
+  \end{frame}
 }
 
-\newcommand{\insideFrame}[1]{\begin{frame}[shrink]#1\end{frame}}
 
 \setbeamercovered{transparent}
 
@@ -68,7 +83,7 @@
 
 \frame{\titlepage}
 
-\section{¿Qué es \LaTeX\ ?}
+\section{¿Qué es \LaTeX ?}
 \begin{frame}
   Según \textcite{LaTeXWik47:online}, \LaTeX\ es:
   \begin{itemize}
@@ -81,24 +96,55 @@
           \end{itemize}
   \end{itemize}
 \end{frame}
+\subsection{Ventajas de usar \LaTeX }
 
-\section{Estructuras básicas}
-
-\insideFrame{\ejemplopdf{Documento básico}{ejemplos/documento.tex}{ejemplos/documento.png}}
-\insideFrame{\ejemplo{Lista de items}{ejemplos/list_itemize.tex}}
-\insideFrame{\ejemplo{Lista numerada}{ejemplos/list_enumerate.tex}}
-\insideFrame{\ejemplo{Lista numerada de otra manera}{ejemplos/list_easylist.tex}}
-
-\section{Estructuras avanzadas}
-\insideFrame{\ejemplo{Ecuaciones matemáticas}{ejemplos/math.tex}}
-
-\section{Estructuras complejas}
 \begin{frame}[allowframebreaks]
-  
+  \begin{itemize}
+    \item Separar diseño, del contenido. P.ej.:
+    \begin{itemize}
+      \item Numeración de referencias internas.
+      \item Separación silábica.
+      \item Creación de pies de página y bibliografías.
+      \item Posicionamiento de flotantes.\footnote{Imágenes, tablas, diagramas, etc.}
+      \item Generación de índices y tablas de figuras. Incluso de marcadores en el PDF final.
+    \end{itemize}
+    \item Uso de código abierto. El software no va a desaparecer o volverse de pago de la noche a la mañana.
+    \item Existen opciones gráficas que facilitan su uso:
+    \begin{itemize}
+      \item TeXworks: Se integra muy bien con el entorno de desarrollo en Windows.
+      \item LyX: Editor WYSIWYG.\footnote{Lo que ves, es lo que hay. Del Inglés \textit{What You See, Is What You Get}.}
+      \item Overleaf: Editor web WYSIWYG con opciones de edición colaborativa. Tiene opción gratuita y descuentos para estudiantes.
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\section{Técnicas básicas}
+\ejemplopdf{Documento básico}{ejemplos/documento.tex}{ejemplos/documento.png}
+
+\ejemplo{Formato básico de texto}{ejemplos/basics.tex}
+\ejemplo{Lista de items}{ejemplos/list_itemize.tex}
+\ejemplo{Lista numerada}{ejemplos/list_enumerate.tex}
+\ejemplo{Lista numerada de otra manera}{ejemplos/list_easylist.tex}
+
+\section{Técnicas avanzadas}
+\ejemplo{Ecuaciones matemáticas}{ejemplos/math.tex}
+\ejemplo{Código fuente}{ejemplos/sourcecode.tex}
+
+\section{Técnicas complejas}
+\ejemplo{Circuitos eléctricos}{ejemplos/circuit.tex}
+\subsection{Presentaciones}
+\begin{frame}
+  En Latex es posible crear presentaciones en pdf.
+  \pause
+  Incluso es posible crear animaciones básicas.
+  \begin{itemize}
+    \item<3-> Toda esta presentación está escrita en Latex.
+    \item<4> Este tipo de documento se llama \textit{Beamer}.
+    \item<5-> Esto permite reutilizar trozos de otros trabajos, como: tablas, código fuente, diagramas, etc. 
+  \end{itemize}
 \end{frame}
 
 \section{Bibliografía}
-
 \begin{frame}[allowframebreaks]
   \printbibliography\
 \end{frame}
