@@ -1,0 +1,134 @@
+\documentclass[a4paper,12pt]{report}
+\usepackage{etoolbox}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{graphicx}
+\graphicspath{{images/}}
+\usepackage{pdflscape}
+\usepackage{footmisc}
+
+\usepackage{csquotes}
+\usepackage[style=apa, backend=biber]{biblatex}
+\addbibresource{main.bib}
+
+\usepackage{lipsum}
+
+\usepackage[LGR,T1]{fontenc}
+  \newcommand{\textgreek}[1]{\begingroup\fontencoding{LGR}\selectfont#1\endgroup}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    urlcolor=blue,
+    linkcolor=black}
+
+\usepackage{enumitem}
+\usepackage{blindtext}
+\usepackage{scrextend}
+\usepackage[sharp]{easylist}
+
+\usepackage{tcolorbox}
+\tcbuselibrary{most}
+
+\usepackage{colortbl}
+\usepackage{longtable}
+\usepackage{array} % For tables with fixed width
+\usepackage{booktabs}
+
+\usepackage[nottoc]{tocbibind}
+
+% TOC with italics for sections and below
+\usepackage{tocloft}
+\renewcommand\cftsubsecfont{\itshape}
+
+\AtBeginEnvironment{easylist}{\ListProperties(Start1=1)}
+
+\newcommand{\foothref}[2]{\href{#1}{#2}\footnote{\url{#1}}}
+
+\renewcommand{\thechapter}{\Roman{chapter}}
+
+\renewcommand{\baselinestretch}{1.5}
+
+\usepackage{subfiles} % Best loaded last in the preamble
+\begin{document}
+
+\begin{titlepage}
+    \begin{center}
+        FACULTAD DE HUMANIDADES Y CIENCIAS DE LA COMUNICACIÓN.\\
+        DEPARTAMENTO:\@ Humanidades
+
+        \vspace{1.5cm}
+        MÁSTER UNIVERSITARIO EN FORMACIÓN PARA PROFESOR DE EDUCACIÓN SECUNDARIA OBLIGATORIA Y BACHILLERATO.\\
+        \vspace{0.5cm}
+        CURSO ACADÉMICO 2024/2025 – CONVOCATORIA ORDINARIA\\
+
+        \vspace{0.5cm}Título largo en castellano / \textit{Long tittle in English} \\
+        Subtítulo en castellano / \textit{Subtítulo en inglés} \\
+
+        \vspace{0.5cm}ESPECIALIDAD:\\
+        Ingeniería y Enseñanzas Técnicas
+
+        \vfill
+        \begin{longtable}[]{p{.5\textwidth}p{.5\textwidth}}
+                                     & Vº. Bº.:                    \\
+            Alumno:                  & Director:                   \\
+            Nombre y apellidos del alumno & Nombre y apellidos del director \\
+        \end{longtable}
+    \end{center}
+\end{titlepage}
+
+\thispagestyle{empty}
+\null\vfill
+
+\begin{flushright}
+    \parbox{.4\textwidth}{%
+    \par\textit{En algún lugar de la mancha \ldots}
+    \newline
+    \par\raggedleft{\citeauthor{de1835ingenioso}}
+}
+\end{flushright}
+
+\vfill\vfill
+
+\clearpage
+
+\par{Esto es el abstract: \lipsum[1]\parencite{Loremips46:online}}
+
+\fbox{palabras clave, foo, bar, xyz}
+
+\par\textit{This is the abstract: \lipsum[1]\parencite{Loremips46:online}\footnote{Este texto es autogenerado, para mostrar como quedará el TFM.}}
+
+\fbox{\textit{keywords, foo, bar, xyz}}
+
+\clearpage
+\tableofcontents
+
+\chapter{Introducción}
+\lipsum[2]
+
+\chapter{Metodología}
+\lipsum[3]
+\section{Metodología A}
+\lipsum[4]
+\subsection{Uso}
+\lipsum[5]
+\subsection{Resultados}
+\lipsum[6]
+\section{Metodología A}
+\lipsum[7]
+\subsection{Uso}
+\lipsum[8]
+\subsection{Resultados}
+\lipsum[9]
+
+\chapter{Conclusiones}
+\lipsum[10]
+
+\part{Anexos}
+
+\newpage
+\listoftables
+
+\printbibliography
+
+\end{document}
