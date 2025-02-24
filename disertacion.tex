@@ -11,6 +11,7 @@
 \usepackage[sharp]{easylist}
 \usepackage{amsmath}
 \usepackage{circuitikz}
+\usepackage{qrcode}
 
 \usepackage{listings}
 \usepackage{tcolorbox}
@@ -44,6 +45,8 @@
   \CheckCommand*\beamer@checkframetitle{\@ifnextchar\bgroup\beamer@inlineframetitle{}}
   \renewcommand*\beamer@checkframetitle{\global\let\beamer@frametitle\relax\@ifnextchar\bgroup\beamer@inlineframetitle{}}
 \makeatother
+
+\AtBeginEnvironment{easylist}{\ListProperties(Start1=1)}
 
 \lstset{
   numbers=left,
@@ -125,10 +128,30 @@
 \ejemplo{Lista de items}{ejemplos/list_itemize.tex}
 \ejemplo{Lista numerada}{ejemplos/list_enumerate.tex}
 \ejemplo{Lista numerada de otra manera}{ejemplos/list_easylist.tex}
+\subsection{Otras técnicas básicas}
+\begin{frame}[fragile]
+  Además, de las técnicas anteriores, hay algunas que también son consideradas básicas.
+
+  \begin{easylist}
+  # Incluir imágenes.
+  ## Se colocarán donde sea más apropiado.
+  ## Tendrán su propio índice.
+  # Pies de página.
+  # Dividir documentos en múltiples ficheros.
+  ## Mejor organización a la hora de editar.
+  # Uso de Bibliografía.
+  ## En especial, facilidad al usar las normas APA.
+  # Enlaces Web.
+  # Referencias internas en el documento.
+  \end{easylist}
+
+  Todo esto, se puede ver en: \url{https://en.wikibooks.org/wiki/LaTeX}
+\end{frame}
 
 \section{Técnicas avanzadas}
 \ejemplo{Ecuaciones matemáticas}{ejemplos/math.tex}
 \ejemplo{Código fuente}{ejemplos/sourcecode.tex}
+\ejemplo{Tablas}{ejemplos/table.tex}
 
 \section{Técnicas complejas}
 \ejemplo{Circuitos eléctricos}{ejemplos/circuit.tex}
@@ -139,9 +162,21 @@
   Incluso es posible crear animaciones básicas.
   \begin{itemize}
     \item<3-> Toda esta presentación está escrita en Latex.
-    \item<4> Este tipo de documento se llama \textit{Beamer}.
+    \item<4-> Este tipo de documento se llama \textit{Beamer}.
     \item<5-> Esto permite reutilizar trozos de otros trabajos, como: tablas, código fuente, diagramas, etc. 
   \end{itemize}
+\end{frame}
+
+\section{Caso de uso: TFM}
+\begin{frame}
+  Una vez que conocemos distintas técnicas, podemos usarlas juntas para crear documentos académicos, que presentan un estilo cuidado y profesional.
+
+  Esto nos permite escribir un TFM con una apariencia que respeta las normas definidas, tales de estilo como de referencias bibliográficas, centrándonos solo en el contenido.
+
+  \begin{center}
+    \small
+    \qrcode[height=2in]{https://github.com/cavefish/master_ceu-disertacion-latex/blob/main/ejemplos/tfm/main.tex}
+  \end{center}
 \end{frame}
 
 \section{Bibliografía}
