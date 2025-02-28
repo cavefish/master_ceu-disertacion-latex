@@ -58,11 +58,11 @@
 \newcommand{\ejemplo}[2]{
   \subsection{#1}
   \begin{frame}[shrink]
-    \begin{block}{Código}
-      \lstinputlisting[language=tex, frame=trBL]{#2}
-    \end{block}
     \begin{block}{Resultado}
       \input{#2} 
+    \end{block}
+    \begin{block}{Código}
+      \lstinputlisting[language=tex, frame=trBL]{#2}
     \end{block}   
   \end{frame}
 }
@@ -70,12 +70,12 @@
 \newcommand{\ejemplopdf}[3]{
   \subsection{#1}
   \begin{frame}[shrink]
+    \includegraphics[width=\textwidth]{#3}    
+  \end{frame}
+  \begin{frame}[shrink]
     \begin{block}{Código}
       \lstinputlisting[language=tex]{#2}
     \end{block}    
-  \end{frame}
-  \begin{frame}[shrink]
-    \includegraphics[width=\textwidth]{#3}    
   \end{frame}
 }
 
