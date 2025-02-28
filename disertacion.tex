@@ -23,7 +23,7 @@
 
 \usefonttheme[onlymath]{serif}
 \usetheme{boxes}
-\title{Disertación: Uso de \LaTeX\ en la creación de documentos académicos}
+\title{Disertación: Uso de {\LaTeX} en la creación de documentos académicos}
 \subtitle{Innovación Docente e Iniciación a la Investigación Educativa. Especialización en Ingeniería y Enseñanzas Técnicas}
 \date{Marzo de 2025}
 
@@ -88,7 +88,7 @@
 
 \section{¿Qué es \LaTeX ?}
 \begin{frame}
-  Según \textcite{LaTeXWik47:online}, \LaTeX\ es:
+  Según \textcite{LaTeXWik47:online}, {\LaTeX} es:
   \begin{itemize}
     \item Sistema de composición de textos orientado a la creación de documentos escritos que presenten una alta calidad tipográfica.
     \item Por sus características y posibilidades, se usa de forma especialmente intensa en:
@@ -99,7 +99,7 @@
           \end{itemize}
   \end{itemize}
 \end{frame}
-\subsection{Ventajas de usar \LaTeX }
+\subsection{Ventajas de usar {\LaTeX}}
 
 \begin{frame}[allowframebreaks]
   \begin{itemize}
@@ -157,14 +157,29 @@
 \ejemplo{Circuitos eléctricos}{ejemplos/circuit.tex}
 \subsection{Presentaciones}
 \begin{frame}
-  En Latex es posible crear presentaciones en pdf.
+  En {\LaTeX} es posible crear presentaciones en pdf.
   \pause
   Incluso es posible crear animaciones básicas.
   \begin{itemize}
-    \item<3-> Toda esta presentación está escrita en Latex.
+    \item<3-> Toda esta presentación está escrita en {\LaTeX}.
     \item<4-> Este tipo de documento se llama \textit{Beamer}.
     \item<5-> Esto permite reutilizar trozos de otros trabajos, como: tablas, código fuente, diagramas, etc. 
   \end{itemize}
+\end{frame}
+
+\subsection{Exámenes}
+\begin{frame}
+  Usando la clase \textit{exam}, podemos crear exámenes.
+
+  \begin{itemize}
+    \item LaTeX es ideal para escribir fórmulas matemáticas, e incluir distintos diagramas.
+    \item Capacidad de crear espaciados entre preguntas.
+    \item Posibilidad de crear soluciones a los exámenes. El espacio usado en la solución, se puede usar para crear el espacio de respuesta.
+    \item Facilidad de crear exámenes tipo test o de opción múltiple.
+    \item Posibilidad de añadir puntos a las preguntas (y sus partes), e incluso crear una rúbrica que poder añadir al final del examen.
+    \item Con unos ajustes, se puede usar en castellano.
+  \end{itemize}
+  Ejemplo: \href{https://www.overleaf.com/learn/latex/Typesetting_exams_in_LaTeX\#Other_languages}{Overleaf: Typesetting exams in LaTeX}
 \end{frame}
 
 \section{Caso de uso: TFM}
